@@ -491,61 +491,210 @@
             font-weight: 500;
         }
 
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
+        .certifications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
         }
 
-        .cert-item {
+        .cert-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
             background: var(--bg-secondary);
-            padding: 1.75rem;
-            border-radius: var(--radius);
             border: 1px solid var(--border);
-            text-align: center;
+            border-radius: var(--radius);
+            padding: 1.5rem;
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
 
-        .cert-item:hover {
-            transform: translateY(-4px);
+        .cert-card:hover {
+            transform: translateY(-3px);
             box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
             border-color: var(--accent);
         }
 
-        .cert-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
+        .cert-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
-        .cert-item h3 {
-            font-size: 1.05rem;
-            margin-bottom: 0.4rem;
+        .cert-icon-box {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .cert-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cert-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
         }
 
         .cert-issuer {
-            color: var(--accent);
-            font-weight: 500;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
-        .cert-date {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 0.35rem;
+        .cert-accent {
+            flex-shrink: 0;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: var(--radius);
+            padding: 0.75rem 1.25rem;
+            text-align: center;
         }
 
-        .cert-placeholder {
+        .cert-accent-label {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+        }
+
+        .cert-accent-date {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cert-remove {
+            flex-shrink: 0;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.25rem;
+        }
+
+        .cert-remove:hover {
+            color: #dc2626;
+        }
+
+        .cert-empty-state {
+            text-align: center;
+            color: var(--text-muted);
+            margin: 1.5rem 0;
+            display: none;
+        }
+
+        .cert-add-card {
+            width: 100%;
+            justify-content: center;
+            gap: 0.75rem;
             border-style: dashed;
             background: transparent;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 1.25rem;
         }
 
-        .cert-placeholder h3 {
+        .cert-add-icon {
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+
+        .cert-add-text {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .cert-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .cert-modal-overlay.active {
+            display: flex;
+        }
+
+        .cert-modal {
+            background: var(--bg-primary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .cert-modal h3 {
+            margin-bottom: 1.25rem;
+            font-size: 1.3rem;
+        }
+
+        .cert-modal label {
+            display: block;
+            font-size: 0.85rem;
             color: var(--text-secondary);
+            margin-bottom: 0.35rem;
+            margin-top: 0.9rem;
         }
 
-        .cert-placeholder .cert-issuer {
-            color: var(--text-muted);
-            font-weight: 400;
+        .cert-modal input {
+            width: 100%;
+            padding: 0.65rem 0.85rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .cert-modal input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .cert-modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+
+        .cert-modal-actions .cta-button {
+            margin-right: 0;
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .cert-card {
+                flex-wrap: wrap;
+            }
+
+            .cert-accent {
+                margin-left: auto;
+            }
         }
 
         .education-item {
@@ -961,31 +1110,36 @@
     <section id="certifications">
         <h2>Certifications</h2>
         <p class="section-subtitle">Courses & credentials I've completed — updated as I go</p>
-        <!--
-            HOW TO ADD A NEW CERTIFICATION:
-            Copy one <div class="cert-item">...</div> block below and edit the text.
-            - .cert-icon        -> any emoji you like (🏅 📜 ☁️ 🐍 etc.)
-            - h3                -> certification name
-            - .cert-issuer      -> issuing platform/organization
-            - .cert-date        -> month/year earned (optional, remove the div if not needed)
-        -->
-        <div class="certifications-grid">
-            <div class="cert-item cert-placeholder">
-                <div class="cert-icon">➕</div>
-                <h3>Add your first certification</h3>
-                <div class="cert-issuer">Replace this card with a real one — see the comment above for the structure to copy</div>
-            </div>
 
-            <!-- Example of a filled-in card (delete cert-placeholder class, edit the text):
-            <div class="cert-item">
-                <div class="cert-icon">🏅</div>
-                <h3>Certification Name</h3>
-                <div class="cert-issuer">Issuing Platform</div>
-                <div class="cert-date">Month Year</div>
-            </div>
-            -->
+        <div class="certifications-list" id="certificationsList">
+            <!-- Certification cards are rendered here by JavaScript (see certifications-data.js below) -->
         </div>
+
+        <p class="cert-empty-state" id="certEmptyState">No certifications added yet — click below to add your first one!</p>
+
+        <button class="cert-card cert-add-card" id="addCertBtn" type="button">
+            <div class="cert-add-icon">➕</div>
+            <div class="cert-add-text">Add Certification</div>
+        </button>
     </section>
+
+    <div class="cert-modal-overlay" id="certModalOverlay">
+        <div class="cert-modal">
+            <h3>Add a Certification</h3>
+            <label for="certTitleInput">Certification name *</label>
+            <input id="certTitleInput" type="text" placeholder="e.g. AWS Certified Cloud Practitioner">
+            <label for="certIssuerInput">Issuing platform / organization *</label>
+            <input id="certIssuerInput" type="text" placeholder="e.g. Amazon Web Services">
+            <label for="certDateInput">Date earned (optional)</label>
+            <input id="certDateInput" type="text" placeholder="e.g. Aug 2025">
+            <label for="certIconInput">Icon (optional emoji)</label>
+            <input id="certIconInput" type="text" placeholder="🏅" maxlength="4">
+            <div class="cert-modal-actions">
+                <button id="certCancelBtn" class="cta-button secondary" type="button">Cancel</button>
+                <button id="certSaveBtn" class="cta-button" type="button">Save Certification</button>
+            </div>
+        </div>
+    </div>
 
     <section id="education">
         <h2>Education</h2>
@@ -1048,6 +1202,111 @@
                 }
             });
         });
+
+        /* ---------- Certifications: add / remove / persist ---------- */
+        const CERT_STORAGE_KEY = 'swapnali_portfolio_certifications';
+        const certList = document.getElementById('certificationsList');
+        const certEmptyState = document.getElementById('certEmptyState');
+        const addCertBtn = document.getElementById('addCertBtn');
+        const certModalOverlay = document.getElementById('certModalOverlay');
+        const certCancelBtn = document.getElementById('certCancelBtn');
+        const certSaveBtn = document.getElementById('certSaveBtn');
+        const certTitleInput = document.getElementById('certTitleInput');
+        const certIssuerInput = document.getElementById('certIssuerInput');
+        const certDateInput = document.getElementById('certDateInput');
+        const certIconInput = document.getElementById('certIconInput');
+
+        function loadCertifications() {
+            try {
+                const raw = localStorage.getItem(CERT_STORAGE_KEY);
+                return raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveCertifications(certs) {
+            localStorage.setItem(CERT_STORAGE_KEY, JSON.stringify(certs));
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function renderCertifications() {
+            const certs = loadCertifications();
+            certList.innerHTML = '';
+            certEmptyState.style.display = certs.length === 0 ? 'block' : 'none';
+
+            certs.forEach((cert, index) => {
+                const card = document.createElement('div');
+                card.className = 'cert-card';
+                card.innerHTML = `
+                    <div class="cert-number">${index + 1}</div>
+                    <div class="cert-icon-box">${escapeHtml(cert.icon || '🏅')}</div>
+                    <div class="cert-info">
+                        <h3>${escapeHtml(cert.title)}</h3>
+                        <div class="cert-issuer">${escapeHtml(cert.issuer)}</div>
+                    </div>
+                    ${cert.date ? `<div class="cert-accent">
+                        <div class="cert-accent-label">Earned</div>
+                        <div class="cert-accent-date">${escapeHtml(cert.date)}</div>
+                    </div>` : ''}
+                    <button class="cert-remove" title="Remove" data-index="${index}">✕</button>
+                `;
+                certList.appendChild(card);
+            });
+
+            certList.querySelectorAll('.cert-remove').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const certs = loadCertifications();
+                    certs.splice(Number(btn.dataset.index), 1);
+                    saveCertifications(certs);
+                    renderCertifications();
+                });
+            });
+        }
+
+        function openCertModal() {
+            certModalOverlay.classList.add('active');
+            certTitleInput.focus();
+        }
+
+        function closeCertModal() {
+            certModalOverlay.classList.remove('active');
+            certTitleInput.value = '';
+            certIssuerInput.value = '';
+            certDateInput.value = '';
+            certIconInput.value = '';
+        }
+
+        addCertBtn.addEventListener('click', openCertModal);
+        certCancelBtn.addEventListener('click', closeCertModal);
+        certModalOverlay.addEventListener('click', (e) => {
+            if (e.target === certModalOverlay) closeCertModal();
+        });
+
+        certSaveBtn.addEventListener('click', () => {
+            const title = certTitleInput.value.trim();
+            const issuer = certIssuerInput.value.trim();
+            const date = certDateInput.value.trim();
+            const icon = certIconInput.value.trim();
+
+            if (!title || !issuer) {
+                alert('Please fill in at least the certification name and issuer.');
+                return;
+            }
+
+            const certs = loadCertifications();
+            certs.push({ title, issuer, date, icon });
+            saveCertifications(certs);
+            renderCertifications();
+            closeCertModal();
+        });
+
+        renderCertifications();
     </script>
 </body>
 </html>
