@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Johnson - Full Stack Developer</title>
+    <title>Swapnali Chavan - Software Engineer</title>
     <style>
         * {
             margin: 0;
@@ -95,6 +95,22 @@
             font-size: 16px;
         }
 
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -109,25 +125,41 @@
 
         .hero {
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 6rem 2rem 4rem;
         }
 
         .hero h1 {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(135deg, var(--accent), #1e40af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero p {
-            font-size: 1.25rem;
+        .hero .title {
+            font-size: 1.5rem;
             color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
             margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        }
+
+        .hero .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-info span {
+            color: var(--text-secondary);
         }
 
         .cta-button {
@@ -142,10 +174,22 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
+            margin-right: 1rem;
         }
 
         .cta-button:hover {
             background: var(--accent-dark);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--accent);
+            color: white;
         }
 
         section h2 {
@@ -154,37 +198,82 @@
             text-align: center;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
-        .about-text p {
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .experience-item {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .experience-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .company {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .dates {
+            color: var(--text-muted);
+            font-size: 0.9rem;
             margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            margin-left: 1.5rem;
             color: var(--text-secondary);
             line-height: 1.8;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-item {
-            background: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        .experience-item li {
+            margin-bottom: 0.75rem;
         }
 
         .projects-grid {
@@ -206,15 +295,15 @@
             box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
         }
 
-        .project-image {
+        .project-icon {
             width: 100%;
-            height: 200px;
+            height: 120px;
             background: linear-gradient(135deg, var(--accent), #1e40af);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         .project-content {
@@ -223,20 +312,20 @@
 
         .project-content h3 {
             font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .project-content p {
             color: var(--text-secondary);
             margin-bottom: 1rem;
             font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         .project-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
         }
 
         .tag {
@@ -245,73 +334,52 @@
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.8rem;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .blog-card {
-            background: var(--bg-secondary);
-            border-radius: var(--radius);
-            padding: 2rem;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .blog-date {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .blog-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
             font-weight: 500;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border);
+        .education-item {
+            background: var(--bg-secondary);
+            padding: 2rem;
             border-radius: var(--radius);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 1rem;
+            border: 1px solid var(--border);
+            text-align: center;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
+        .education-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item .institution {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .education-item .grade {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .about-section {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .about-section p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 500;
         }
 
         footer {
@@ -327,12 +395,18 @@
                 font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .hero .title {
+                font-size: 1.25rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
+            .hero .contact-info {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .cta-button {
+                display: block;
+                margin-bottom: 1rem;
             }
 
             section {
@@ -342,138 +416,251 @@
             section h2 {
                 font-size: 1.8rem;
             }
+
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="#home" class="logo">AJ</a>
+            <a href="#home" class="logo">SC</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle">🌙</button>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <div class="social-links">
+                    <a href="https://github.com" title="GitHub" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com" title="LinkedIn" target="_blank">LinkedIn</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+            </div>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <h1>Full Stack Developer & Problem Solver</h1>
-        <p>I build web applications that are fast, scalable, and beautiful. Passionate about clean code and user experience.</p>
-        <a href="#contact" class="cta-button">Get In Touch</a>
+        <h1>Swapnali Chavan</h1>
+        <p class="title">Software Engineer | Python Backend Developer</p>
+        <p class="subtitle">3+ Years of Experience in Backend Development, ETL Pipelines & Cloud Technologies</p>
+        <div class="contact-info">
+            <span>📍 Bengaluru, India</span>
+            <span>📧 swapndchavan@gmail.com</span>
+            <span>📱 +91-7620738556</span>
+        </div>
+        <div>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+            <a href="#projects" class="cta-button secondary">View My Work</a>
+        </div>
     </section>
 
     <section id="about">
         <h2>About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Hi! I'm Alex Johnson, a full stack developer with 5+ years of experience building web applications. I specialize in React, Node.js, and cloud technologies.</p>
-                <p>I love turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me contributing to open source, writing technical blogs, or exploring new technologies.</p>
-                <p>Currently, I work at TechCorp where I lead a team of developers building products used by thousands.</p>
+        <div class="about-section">
+            <p>
+                I'm a <span class="highlight">Software Engineer</span> with <span class="highlight">3+ years of experience</span> building scalable backend systems and data pipelines. I specialize in designing and implementing REST APIs using Python and FastAPI, automating complex ETL workflows, and optimizing large-scale data processing systems.
+            </p>
+            <p>
+                My passion lies in solving complex technical problems through clean code, thoughtful architecture, and continuous learning. I have a proven track record of delivering production-ready solutions in fast-paced, collaborative environments across international teams.
+            </p>
+            <p>
+                Outside of work, I contribute to open-source projects, participate in competitive coding, and explore new technologies. I'm fluent in English, Marathi, Hindi, and Japanese.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Backend & APIs</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Flask</span>
+                </div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-item">React</div>
-                <div class="skill-item">Node.js</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">PostgreSQL</div>
-                <div class="skill-item">Docker</div>
-                <div class="skill-item">AWS</div>
-                <div class="skill-item">GraphQL</div>
-                <div class="skill-item">Next.js</div>
+
+            <div class="skill-category">
+                <h3>Data & Big Data</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">PySpark</span>
+                    <span class="skill-tag">ETL/ELT</span>
+                    <span class="skill-tag">Apache Airflow</span>
+                    <span class="skill-tag">Talend</span>
+                    <span class="skill-tag">Data Warehousing</span>
+                    <span class="skill-tag">Data Modeling</span>
+                </div>
             </div>
+
+            <div class="skill-category">
+                <h3>Databases & Data</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Redshift</span>
+                    <span class="skill-tag">SQLAlchemy</span>
+                    <span class="skill-tag">Parquet</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>AI/ML</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">CNN</span>
+                    <span class="skill-tag">Streamlit</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frontend & Other</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Bitbucket</span>
+                    <span class="skill-tag">JIRA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Work Experience</h2>
+
+        <div class="experience-item">
+            <h3>Software Engineer</h3>
+            <div class="company">Hewlett Packard (HP)</div>
+            <div class="dates">May 2024 - Present | Bengaluru, India</div>
+            <ul>
+                <li>Developed backend REST APIs using Python and FastAPI to automate business workflows, reducing manual effort and improving operational efficiency</li>
+                <li>Automated Linux-based operational processes using Python scripting, improving workflow accuracy by 40% and streamlining repetitive tasks</li>
+                <li>Diagnosed and resolved production issues across enterprise Magento 2 applications by analyzing logs and deploying production-ready fixes</li>
+                <li>Collaborated with product managers, QA engineers, and international teams (India, Canada, US) to deliver features across multiple Agile cycles</li>
+                <li>Enhanced B2B Magento 2 applications by developing responsive UI components and maintaining 1,000+ bilingual pages, reducing turnaround time by 30%</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Data Engineer</h3>
+            <div class="company">Brady Corporation</div>
+            <div class="dates">Sep 2023 - Apr 2024 | Bengaluru, India</div>
+            <ul>
+                <li>Designed and implemented scalable ETL/ELT pipelines using Python, SQL, and PySpark to process 50M+ records daily, reducing processing time by 40%</li>
+                <li>Leveraged Talend Open Studio for data extraction, transformation, validation, and loading across enterprise data sources</li>
+                <li>Built automated data ingestion pipelines from REST APIs and AWS S3 into Amazon Redshift for analytics</li>
+                <li>Developed dimensional data models with star schemas and Parquet format, improving query performance by 35%</li>
+                <li>Automated batch workflows using Apache Airflow with 99.9% pipeline reliability and dependency management</li>
+                <li>Optimized complex SQL queries using indexing and partitioning, reducing execution time by up to 60%</li>
+                <li>Containerized ETL applications using Docker and implemented CI/CD pipelines with Git and Jenkins</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Data Science Intern</h3>
+            <div class="company">Simplilearn</div>
+            <div class="dates">2023 | 2 Months</div>
+            <ul>
+                <li>Evaluated AI/ML projects submitted by learners and provided structured feedback for improvement</li>
+                <li>Resolved learner queries related to AI/ML concepts and project implementation</li>
+                <li>Supported 100+ learners across Data Science programs with personalized learning paths</li>
+            </ul>
         </div>
     </section>
 
     <section id="projects">
         <h2>Featured Projects</h2>
+
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image">🚀</div>
+                <div class="project-icon">🎵</div>
                 <div class="project-content">
-                    <h3>SaaS Analytics Platform</h3>
-                    <p>A real-time analytics dashboard for tracking user behavior and metrics with beautiful visualizations.</p>
+                    <h3>AI-Based Music Generation</h3>
+                    <p>
+                        Developed an AI-powered music generation system using Transformer-based deep learning models to generate original musical compositions from symbolic MIDI sequences.
+                    </p>
+                    <p>
+                        Built an end-to-end pipeline for MIDI preprocessing, sequence modeling, and music generation with an interactive Streamlit interface. Optimized model training and inference to generate coherent musical patterns.
+                    </p>
                     <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">Transformers</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">MIDI</span>
                     </div>
-                    <a href="#" class="cta-button" style="display: inline-block; padding: 0.5rem 1rem; font-size: 0.9rem;">View Project →</a>
                 </div>
             </div>
+
             <div class="project-card">
-                <div class="project-image">🛒</div>
+                <div class="project-icon">🏥</div>
                 <div class="project-content">
-                    <h3>E-Commerce Platform</h3>
-                    <p>Full-featured e-commerce solution with payment integration, inventory management, and admin dashboard.</p>
+                    <h3>Advanced AI Medical Intelligence Platform</h3>
+                    <p>
+                        Developed an AI-powered medical image analysis platform using TensorFlow CNN to classify chest X-ray images with 95%+ accuracy for pneumonia detection.
+                    </p>
+                    <p>
+                        Integrated Google Gemini API and Grad-CAM for AI-assisted clinical reports. Built scalable FastAPI services with automated PDF report generation and secure patient record management using SQLAlchemy and SQLite.
+                    </p>
                     <div class="project-tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">Stripe</span>
-                        <span class="tag">MongoDB</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Google Gemini</span>
+                        <span class="tag">CNN</span>
                     </div>
-                    <a href="#" class="cta-button" style="display: inline-block; padding: 0.5rem 1rem; font-size: 0.9rem;">View Project →</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image">💬</div>
-                <div class="project-content">
-                    <h3>Real-Time Chat App</h3>
-                    <p>WebSocket-based chat application with rooms, user authentication, and message persistence.</p>
-                    <div class="project-tags">
-                        <span class="tag">Socket.io</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Redis</span>
-                    </div>
-                    <a href="#" class="cta-button" style="display: inline-block; padding: 0.5rem 1rem; font-size: 0.9rem;">View Project →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="blog">
-        <h2>Latest Blog Posts</h2>
-        <div class="blog-grid">
-            <article class="blog-card">
-                <div class="blog-date">December 15, 2024</div>
-                <h3>Building Scalable APIs with Node.js</h3>
-                <p>Learn best practices for designing and building scalable REST APIs that can handle millions of requests efficiently.</p>
-            </article>
-            <article class="blog-card">
-                <div class="blog-date">December 8, 2024</div>
-                <h3>React Performance Optimization Tips</h3>
-                <p>Explore key techniques to optimize React applications including memoization, code splitting, and lazy loading.</p>
-            </article>
-            <article class="blog-card">
-                <div class="blog-date">November 30, 2024</div>
-                <h3>Docker for Full Stack Developers</h3>
-                <p>A practical guide to containerizing your full stack applications and deploying them efficiently.</p>
-            </article>
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>B.Tech Computer Science and Engineering (CSE)</h3>
+            <div class="institution">North Maharashtra University (NMU)</div>
+            <div class="grade">Grade: 9.7/10</div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Get In Touch</h2>
-        <form class="contact-form" id="contactForm">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+        <h2>Let's Connect</h2>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+                I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+            </p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <a href="mailto:swapndchavan@gmail.com" class="cta-button">📧 Send Email</a>
+                <a href="tel:+917620738556" class="cta-button secondary">📱 Call Me</a>
+                <a href="https://linkedin.com/in/swapnali-chavan" target="_blank" class="cta-button secondary">💼 LinkedIn</a>
+                <a href="https://github.com/swapnali21chavan" target="_blank" class="cta-button secondary">🐙 GitHub</a>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="cta-button">Send Message</button>
-        </form>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Alex Johnson. All rights reserved.</p>
-        <p>Built with passion and clean code.</p>
+        <p>&copy; 2024 Swapnali Chavan. All rights reserved.</p>
+        <p>Passionate about backend development, data engineering, and solving complex problems with clean code.</p>
     </footer>
 
     <script>
@@ -509,12 +696,6 @@
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thanks for your message! I\'ll get back to you soon.');
-            e.target.reset();
         });
     </script>
 </body>
