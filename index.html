@@ -41,7 +41,26 @@
             line-height: 1.6;
             color: var(--text-primary);
             background: var(--bg-primary);
+            background-image:
+                radial-gradient(circle at 15% 10%, rgba(37, 99, 235, 0.10), transparent 45%),
+                radial-gradient(circle at 85% 0%, rgba(30, 64, 175, 0.10), transparent 40%);
+            background-attachment: fixed;
             transition: background-color 0.3s, color 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.6s ease both;
         }
 
         header {
@@ -49,6 +68,8 @@
             top: 0;
             background: var(--bg-primary);
             border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            backdrop-filter: blur(8px);
             z-index: 100;
         }
 
@@ -123,18 +144,85 @@
             padding: 4rem 2rem;
         }
 
+        .cover-banner {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .cover-banner svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        @keyframes waveDrift {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-30px); }
+            100% { transform: translateX(0); }
+        }
+
+        .wave-back { animation: waveDrift 9s ease-in-out infinite; }
+        .wave-mid { animation: waveDrift 7s ease-in-out infinite reverse; }
+        .wave-front { animation: waveDrift 5s ease-in-out infinite; }
+
+        .cover-emoji {
+            position: absolute;
+            left: 2rem;
+            bottom: -28px;
+            font-size: 3.5rem;
+            background: var(--bg-primary);
+            border-radius: 50%;
+            width: 76px;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .cover-banner {
+                height: 140px;
+            }
+            .cover-emoji {
+                width: 56px;
+                height: 56px;
+                font-size: 2.25rem;
+                left: 1rem;
+                bottom: -20px;
+            }
+        }
+
         .hero {
             text-align: center;
-            padding: 6rem 2rem 4rem;
+            padding: 3rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-greeting {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+            animation: fadeInUp 0.6s ease both;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.25rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--accent), #1e40af);
+            background: linear-gradient(135deg, var(--accent), #1e40af, #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: fadeInUp 0.7s ease both;
         }
 
         .hero .title {
@@ -179,32 +267,49 @@
             border-radius: var(--radius);
             text-decoration: none;
             font-weight: 500;
-            transition: background 0.2s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
             border: none;
             cursor: pointer;
             font-size: 16px;
             margin-right: 1rem;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
         }
 
         .cta-button:hover {
             background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
         }
 
         .cta-button.secondary {
             background: transparent;
             border: 2px solid var(--accent);
             color: var(--accent);
+            box-shadow: none;
         }
 
         .cta-button.secondary:hover {
             background: var(--accent);
             color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
         }
 
         section h2 {
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             text-align: center;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 64px;
+            height: 4px;
+            margin: 0.75rem auto 2rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
         }
 
         .section-subtitle {
@@ -226,6 +331,13 @@
             padding: 2rem;
             border-radius: var(--radius);
             border: 1px solid var(--border);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
+            border-color: var(--accent);
         }
 
         .skill-category h3 {
@@ -247,6 +359,12 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
         }
 
         .experience-item {
@@ -256,6 +374,12 @@
             margin-bottom: 2rem;
             border-radius: var(--radius);
             border: 1px solid var(--border);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 10px 22px rgba(37, 99, 235, 0.1);
         }
 
         .experience-item h3 {
@@ -300,8 +424,9 @@
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.2);
+            border-color: var(--accent);
         }
 
         .project-icon {
@@ -391,6 +516,44 @@
             font-weight: 500;
         }
 
+        .connect-wrap {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: calc(var(--radius) * 2);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .connect-wrap::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.18), transparent 70%);
+        }
+
+        .connect-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .connect-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
         footer {
             background: var(--bg-secondary);
             padding: 2rem;
@@ -446,14 +609,36 @@
             <div style="display: flex; gap: 1rem; align-items: center;">
                 <div class="social-links">
                     <a href="https://github.com/swapnali21chavan" title="GitHub" target="_blank">GitHub</a>
-                    <a href="https://linkedin.com/in/swapnali-chavan" title="LinkedIn" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/swapnali-chavan-920972228/" title="LinkedIn" target="_blank">LinkedIn</a>
                 </div>
                 <button class="theme-toggle" id="themeToggle">🌙</button>
             </div>
         </nav>
     </header>
 
+    <div class="cover-banner">
+        <svg viewBox="0 0 1200 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="coverBg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1e3a8a"/>
+                    <stop offset="50%" stop-color="#2563eb"/>
+                    <stop offset="100%" stop-color="#7c3aed"/>
+                </linearGradient>
+                <linearGradient id="wave1" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#60a5fa"/>
+                    <stop offset="100%" stop-color="#a78bfa"/>
+                </linearGradient>
+            </defs>
+            <rect width="1200" height="220" fill="url(#coverBg)"/>
+            <path class="wave wave-back" d="M0,140 C150,190 350,90 600,130 C850,170 1050,90 1200,120 L1200,220 L0,220 Z" fill="#ffffff" opacity="0.10"/>
+            <path class="wave wave-mid" d="M0,160 C200,110 400,190 650,150 C900,110 1050,170 1200,150 L1200,220 L0,220 Z" fill="url(#wave1)" opacity="0.20"/>
+            <path class="wave wave-front" d="M0,180 C180,150 420,200 700,170 C950,145 1080,190 1200,175 L1200,220 L0,220 Z" fill="#ffffff" opacity="0.16"/>
+        </svg>
+        <span class="cover-emoji">😃</span>
+    </div>
+
     <section id="home" class="hero">
+        <span class="hero-greeting">👋 Hey there, I'm</span>
         <h1>Swapnali Chavan</h1>
         <p class="title">Software Engineer | Python Backend Developer</p>
         <p class="subtitle">3+ Years of Experience Building Scalable REST APIs, ETL Pipelines & Cloud-Based Applications</p>
@@ -659,15 +844,12 @@
 
     <section id="contact">
         <h2>Let's Connect</h2>
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
-                I'm always interested in hearing about new projects and opportunities. Feel free to reach out!
+        <div class="connect-wrap">
+            <p class="connect-text">
+                👋 Hey there! I'm always up for hearing about new projects, ideas, or opportunities — don't be a stranger.
             </p>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <a href="mailto:swapndchavan@gmail.com" class="cta-button">📧 Send Email</a>
-                <a href="tel:+917620738556" class="cta-button secondary">📱 Call Me</a>
-                <a href="https://linkedin.com/in/swapnali-chavan" target="_blank" class="cta-button secondary">💼 LinkedIn</a>
-                <a href="https://github.com/swapnali21chavan" target="_blank" class="cta-button secondary">🐙 GitHub</a>
+            <div class="connect-buttons">
+                <a href="https://www.linkedin.com/in/swapnali-chavan-920972228/" target="_blank" class="cta-button">💼 LinkedIn</a>
                 <a href="https://swapnali21chavan.github.io/" target="_blank" class="cta-button secondary">🌐 Portfolio</a>
             </div>
         </div>
