@@ -162,6 +162,15 @@
             color: var(--text-secondary);
         }
 
+        .contact-info a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+
         .cta-button {
             display: inline-block;
             background: var(--accent);
@@ -437,7 +446,7 @@
             <div style="display: flex; gap: 1rem; align-items: center;">
                 <div class="social-links">
                     <a href="https://github.com/swapnali21chavan" title="GitHub" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/swapnali-chavan-920972228/" title="LinkedIn" target="_blank">LinkedIn</a>
+                    <a href="https://linkedin.com/in/swapnali-chavan" title="LinkedIn" target="_blank">LinkedIn</a>
                 </div>
                 <button class="theme-toggle" id="themeToggle">🌙</button>
             </div>
@@ -447,11 +456,12 @@
     <section id="home" class="hero">
         <h1>Swapnali Chavan</h1>
         <p class="title">Software Engineer | Python Backend Developer</p>
-        <p class="subtitle">3+ Years of Experience in Backend Development, ETL Pipelines & Cloud Technologies</p>
+        <p class="subtitle">3+ Years of Experience Building Scalable REST APIs, ETL Pipelines & Cloud-Based Applications</p>
         <div class="contact-info">
             <span>📍 Bengaluru, India</span>
             <span>📧 swapndchavan@gmail.com</span>
             <span>📱 +91-7620738556</span>
+            <a href="https://swapnali21chavan.github.io/" target="_blank">🌐 swapnali21chavan.github.io</a>
         </div>
         <div>
             <a href="#contact" class="cta-button">Get In Touch</a>
@@ -463,13 +473,13 @@
         <h2>About Me</h2>
         <div class="about-section">
             <p>
-                I'm a <span class="highlight">Software Engineer</span> with <span class="highlight">3+ years of experience</span> building scalable backend systems and data pipelines. I specialize in designing and implementing REST APIs using Python and FastAPI, automating complex ETL workflows, and optimizing large-scale data processing systems.
+                I'm a <span class="highlight">Python Backend Developer</span> with <span class="highlight">3+ years of experience</span> building scalable REST APIs using FastAPI, Python, SQL, AWS, and Apache Airflow. I specialize in backend development, ETL pipelines, and cloud-based applications, with a proven track record in designing data pipelines and dimensional models, automating batch workflows with Airflow, and optimizing large-scale SQL queries.
             </p>
             <p>
-                My passion lies in solving complex technical problems through clean code, thoughtful architecture, and continuous learning. I have a proven track record of delivering production-ready solutions in fast-paced, collaborative environments across international teams.
+                My passion lies in solving complex technical problems through clean code, thoughtful architecture, and continuous learning. I'm a strong collaborator across cross-functional and international teams, with hands-on experience in containerization (Docker), CI/CD (Jenkins), and production troubleshooting for enterprise applications.
             </p>
             <p>
-                Outside of work, I contribute to open-source projects, participate in competitive coding, and explore new technologies. I'm fluent in English, Marathi, Hindi, and Japanese.
+                Outside of work, I contribute to open-source projects, participate in competitive coding, and explore new technologies including generative AI tools. I'm fluent in English, Marathi, Japanese, and Hindi.
             </p>
         </div>
     </section>
@@ -493,7 +503,8 @@
                     <span class="skill-tag">PySpark</span>
                     <span class="skill-tag">ETL/ELT</span>
                     <span class="skill-tag">Apache Airflow</span>
-                    <span class="skill-tag">Talend</span>
+                    <span class="skill-tag">Talend Open Studio</span>
+                    <span class="skill-tag">Talend Big Data</span>
                     <span class="skill-tag">Data Warehousing</span>
                     <span class="skill-tag">Data Modeling</span>
                 </div>
@@ -514,6 +525,7 @@
                 <h3>Cloud & DevOps</h3>
                 <div class="skill-items">
                     <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure Data Lake</span>
                     <span class="skill-tag">Docker</span>
                     <span class="skill-tag">CI/CD</span>
                     <span class="skill-tag">Jenkins</span>
@@ -528,6 +540,7 @@
                     <span class="skill-tag">Scikit-learn</span>
                     <span class="skill-tag">Deep Learning</span>
                     <span class="skill-tag">CNN</span>
+                    <span class="skill-tag">Generative AI Tools</span>
                     <span class="skill-tag">Streamlit</span>
                 </div>
             </div>
@@ -551,39 +564,40 @@
         <div class="experience-item">
             <h3>Software Engineer</h3>
             <div class="company">Hewlett Packard (HP)</div>
-            <div class="dates">May 2025 - Present | Bengaluru, India</div>
+            <div class="dates">June 2024 - Present | Bengaluru, India</div>
             <ul>
                 <li>Developed backend REST APIs using Python and FastAPI to automate business workflows, reducing manual effort and improving operational efficiency</li>
-                <li>Automated Linux-based operational processes using Python scripting, improving workflow accuracy by 40% and streamlining repetitive tasks</li>
-                <li>Diagnosed and resolved production issues across enterprise Magento 2 applications by analyzing logs and deploying production-ready fixes</li>
-                <li>Collaborated with product managers, QA engineers, and international teams (India, Canada, US) to deliver features across multiple Agile cycles</li>
-                <li>Enhanced B2B Magento 2 applications by developing responsive UI components and maintaining 1,000+ bilingual pages, reducing turnaround time by 30%</li>
+                <li>Automated Linux-based operational processes using Python scripting, improving workflow accuracy by 40% and streamlining repetitive tasks across multiple teams</li>
+                <li>Diagnosed and resolved production issues across enterprise Magento 2 applications by analyzing application logs, debugging backend services, and deploying production-ready fixes in Linux environments</li>
+                <li>Collaborated with product managers, QA engineers, and international stakeholders across India, Canada, and the US to deliver production features over multiple Agile release cycles using JIRA, Git, and Bitbucket</li>
+                <li>Enhanced enterprise B2B Magento 2 applications by developing responsive UI components and maintaining 1,000+ bilingual (English/French) pages, reducing content delivery turnaround time by 30%</li>
             </ul>
         </div>
 
         <div class="experience-item">
             <h3>Data Engineer</h3>
             <div class="company">Brady Corporation</div>
-            <div class="dates">May 2024 - Apr 2025 | Bengaluru, India</div>
+            <div class="dates">Sep 2023 - Apr 2024 | Bengaluru, India</div>
             <ul>
-                <li>Designed and implemented scalable ETL/ELT pipelines using Python, SQL, and PySpark to process 50M+ records daily, reducing processing time by 40%</li>
-                <li>Leveraged Talend Open Studio for data extraction, transformation, validation, and loading across enterprise data sources</li>
-                <li>Built automated data ingestion pipelines from REST APIs and AWS S3 into Amazon Redshift for analytics</li>
-                <li>Developed dimensional data models with star schemas and Parquet format, improving query performance by 35%</li>
-                <li>Automated batch workflows using Apache Airflow with 99.9% pipeline reliability and dependency management</li>
-                <li>Optimized complex SQL queries using indexing and partitioning, reducing execution time by up to 60%</li>
-                <li>Containerized ETL applications using Docker and implemented CI/CD pipelines with Git and Jenkins</li>
+                <li>Designed and implemented scalable ETL/ELT pipelines using Python, SQL, and PySpark to process 50M+ records daily, reducing data processing time by 40%</li>
+                <li>Contributed to the PDC Healthcare B2B e-commerce platform in Magento 2, enabling the sale of healthcare products such as wristbands and labels</li>
+                <li>Integrated AI-powered Freshchat and ShareCart to enhance customer support and streamline the B2B purchasing experience</li>
+                <li>Leveraged Talend Open Studio for data extraction, transformation, validation, and loading across multiple enterprise data sources</li>
+                <li>Built automated data ingestion pipelines from REST APIs, relational databases, and AWS S3 into Amazon Redshift to improve data availability for enterprise analytics</li>
+                <li>Developed dimensional data models with star schemas and stored processed datasets in Parquet format, improving query performance by 35%</li>
+                <li>Automated batch workflows using Apache Airflow, implementing scheduling, dependency management, and monitoring to achieve 99.9% pipeline reliability</li>
+                <li>Optimized complex SQL queries using indexing and partitioning, reducing execution time by up to 60% for large-scale analytical workloads</li>
+                <li>Containerized ETL applications using Docker and implemented data quality checks and CI/CD pipelines using Git and Jenkins</li>
             </ul>
         </div>
 
         <div class="experience-item">
-            <h3>Data Science & AI/ML Intern</h3>
+            <h3>LSM Intern (ML)</h3>
             <div class="company">Simplilearn</div>
-            <div class="dates">Sep 2023 - Apr 2024 | 8 Months</div>
+            <div class="dates">2023 | 2 Months</div>
             <ul>
-                <li>Evaluated AI/ML projects submitted by learners and provided structured feedback for improvement</li>
-                <li>Resolved learner queries related to AI/ML concepts and project implementation</li>
-                <li>Supported 100+ learners across Data Science programs with personalized learning paths</li>
+                <li>Evaluated AI/ML projects submitted by learners and provided structured feedback to improve model accuracy, code quality, and project documentation</li>
+                <li>Resolved learner queries related to AI/ML concepts, project implementation, and personalized learning paths, supporting 100+ learners across Data Science programs</li>
             </ul>
         </div>
     </section>
@@ -600,7 +614,7 @@
                         Developed an AI-powered music generation system using Transformer-based deep learning models to generate original musical compositions from symbolic MIDI sequences.
                     </p>
                     <p>
-                        Built an end-to-end pipeline for MIDI preprocessing, sequence modeling, and music generation with an interactive Streamlit interface. Optimized model training and inference to generate coherent musical patterns.
+                        Built an end-to-end pipeline for MIDI preprocessing, sequence modeling, and music generation with an interactive Streamlit interface. Optimized model training and inference to generate coherent musical patterns while preserving rhythm and note continuity.
                     </p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
@@ -620,7 +634,7 @@
                         Developed an AI-powered medical image analysis platform using TensorFlow CNN to classify chest X-ray images with 95%+ accuracy for pneumonia detection.
                     </p>
                     <p>
-                        Integrated Google Gemini API and Grad-CAM for AI-assisted clinical reports. Built scalable FastAPI services with automated PDF report generation and secure patient record management using SQLAlchemy and SQLite.
+                        Integrated Google Gemini API and Grad-CAM to generate AI-assisted clinical reports with explainable predictions, improving diagnosis transparency. Built scalable FastAPI services with automated PDF report generation and secure patient record management using SQLAlchemy and SQLite.
                     </p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
@@ -637,7 +651,7 @@
     <section id="education">
         <h2>Education</h2>
         <div class="education-item">
-            <h3>B.Tech Computer Science and Engineering (CSE)</h3>
+            <h3>B.Tech / B.E. Computer Science and Engineering (CSE)</h3>
             <div class="institution">North Maharashtra University (NMU)</div>
             <div class="grade">Grade: 9.7/10</div>
         </div>
@@ -652,8 +666,9 @@
             <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                 <a href="mailto:swapndchavan@gmail.com" class="cta-button">📧 Send Email</a>
                 <a href="tel:+917620738556" class="cta-button secondary">📱 Call Me</a>
-                <a href="https://www.linkedin.com/in/swapnali-chavan-920972228/" target="_blank" class="cta-button secondary">💼 LinkedIn</a>
+                <a href="https://linkedin.com/in/swapnali-chavan" target="_blank" class="cta-button secondary">💼 LinkedIn</a>
                 <a href="https://github.com/swapnali21chavan" target="_blank" class="cta-button secondary">🐙 GitHub</a>
+                <a href="https://swapnali21chavan.github.io/" target="_blank" class="cta-button secondary">🌐 Portfolio</a>
             </div>
         </div>
     </section>
