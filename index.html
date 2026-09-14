@@ -1392,3 +1392,43 @@
     </script>
 </body>
 </html>
+
+/* ---------- Certifications: add / remove / persist ---------- */
+const CERT_STORAGE_KEY = 'swapnali_portfolio_certifications';
+
+// Pre-seeded certifications that show up by default
+const DEFAULT_CERTIFICATIONS = [
+    {
+        title: "Japanese Language and Culture Course - Starter A1 Katsudoo Level L1-14",
+        issuer: "Fuji Academy x Human Resocia (Season 3)",
+        date: "Aug 2026",
+        icon: "🇯🇵",
+        photo: null
+    }
+];
+
+const certList = document.getElementById('certificationsList');
+const certEmptyState = document.getElementById('certEmptyState');
+const addCertBtn = document.getElementById('addCertBtn');
+const certModalOverlay = document.getElementById('certModalOverlay');
+const certCancelBtn = document.getElementById('certCancelBtn');
+const certSaveBtn = document.getElementById('certSaveBtn');
+const certTitleInput = document.getElementById('certTitleInput');
+const certIssuerInput = document.getElementById('certIssuerInput');
+const certDateInput = document.getElementById('certDateInput');
+const certIconInput = document.getElementById('certIconInput');
+const certPhotoInput = document.getElementById('certPhotoInput');
+const photoPreview = document.getElementById('photoPreview');
+let selectedPhotoData = null;
+
+function loadCertifications() {
+    try {
+        const raw = localStorage.getItem(CERT_STORAGE_KEY);
+        if (raw) return JSON.parse(raw);
+        // First visit / no saved data yet — seed with defaults
+        saveCertifications(DEFAULT_CERTIFICATIONS);
+        return DEFAULT_CERTIFICATIONS;
+    } catch (e) {
+        return DEFAULT_CERTIFICATIONS;
+    }
+}
